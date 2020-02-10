@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button, View, Text } from 'react-native';
 import { createAppContainer, withNavigationFocus } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
 
 // Repro steps:
 // 1. Navigate to details
@@ -29,8 +30,14 @@ const Details = () => {
   );
 };
 
+const TabNavigator = createBottomTabNavigator({
+  Home: {
+    screen: Home
+  }
+});
+
 const AppNavigator = createStackNavigator({
-  Home,
+  TabNavigator,
   Details
 });
 
