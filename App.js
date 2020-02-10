@@ -10,10 +10,9 @@ import { createStackNavigator } from 'react-navigation-stack';
 
 // NOTE: If you tap the back button, focused works just fine.
 const Home = withNavigationFocus(({ navigation }) => {
-  console.warn(navigation.isFocused());
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
+      <Text>Home Screen: {String(navigation.isFocused())}</Text>
       <Button
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
